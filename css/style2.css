@@ -1,0 +1,185 @@
+body {
+  font-family: Helvetica, sans-serif;
+  color: #333;
+  font-size: 18px;
+  background: url(../assets/images/background.jpg);
+}
+
+.box {
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  border-radius: 10px;
+}
+
+input.placeholder {
+  color: #ccc;
+}
+
+input:-moz-placeholder {
+  color: #ccc;
+}
+
+input::-moz-placeholder {
+  color: #ccc;
+}
+
+input:-ms-input-placeholder {
+  color: #ccc;
+}
+
+input::-webkit-input-placeholder {
+  color: #ccc;
+}
+
+a {
+  color: white;
+}
+
+a:visited {
+  color: blue;
+}
+
+a:hover {
+  color: green;
+}
+
+a:active {
+  color: red;
+}
+
+h1 {
+  color: red;
+  font-size: 14px;
+}
+
+h2 {
+  color: blue;
+  font-size: 12px;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+nav ul li {
+  display: inline-block;
+}
+
+nav li a {
+  display: block;
+  padding: 6px 12px;
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  nav li {
+    display: block;
+    padding: 10px;
+  }
+}
+
+body {
+  font-size: 1em;
+}
+
+h1 {
+  font-size: 4.5em;
+}
+
+.minus {
+  width: 20px;
+}
+
+.sum {
+  width: 140px;
+}
+
+.item-block {
+  width: 31.25%;
+}
+
+.message, .success, .error, .serious-error, .test, .warning {
+  border: 1px solid #ccc;
+  padding: 10px;
+  color: #333;
+}
+
+.success {
+  border-color: green;
+}
+
+.error, .serious-error, .test {
+  border-color: red;
+}
+
+.warning {
+  border-color: yellow;
+}
+
+.serious-error {
+  border-width: 3px;
+}
+
+.icon:before, .test:before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: url("../img/icon.png");
+}
+
+.test {
+  border-width: 3px;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+ul li {
+  display: inline-block;
+}
+
+a:hover {
+  color: red;
+}
+
+a.main-link {
+  color: blue;
+}
+
+a.secondary-link {
+  color: #ccc;
+}
+
+.block {
+  width: 50%;
+  height: 50px;
+  border: 1px solid red;
+  background: #333;
+}
+
+.block.left {
+  float: left;
+}
+
+.block.right {
+  float: right;
+}
+
+Ul li:first-child {
+  margin: 0;
+}
+
+p {
+  color: #7f0f16;
+}
+
+span {
+  color: #b3b3b3;
+}

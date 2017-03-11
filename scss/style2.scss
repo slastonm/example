@@ -1,0 +1,229 @@
+$site-font-family: Helvetica, sans-serif;
+$primary-color: #333;
+$site-font-size: 18px;
+$assetPath : "../assets/images";
+
+body {
+  font-family: $site-font-family;
+  color: $primary-color;
+  font-size: $site-font-size;
+  background: url(#{$assetPath}/background.jpg);
+}
+
+
+
+
+ //=========== mixin =========
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
+}
+
+.box { @include border-radius(10px); }
+
+
+@mixin input-placeholder {
+  &.placeholder { @content; }
+  &:-moz-placeholder { @content; }
+  &::-moz-placeholder { @content; }
+  &:-ms-input-placeholder { @content; }
+  &::-webkit-input-placeholder { @content; }
+}
+
+input{
+  @include input-placeholder {
+    color: #ccc;
+  }
+}
+
+@mixin links ($link, $visit, $hover, $active) {
+  a {
+    color: $link;
+    &:visited {
+      color: $visit;
+    }
+    &:hover {
+      color: $hover;
+    }
+    &:active {
+      color: $active;
+    }
+  }
+}
+
+@include links (white, blue, green, red);
+
+
+
+@mixin headline($size, $color: red) {
+  color: $color;
+  font-size: $size;
+}
+
+h1 {
+  @include headline(14px);
+}
+
+h2 {
+  @include headline(12px, blue);
+}
+
+//=========== Nesting =========
+
+nav {
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    li { display: inline-block; }
+  }
+
+  li {
+    a {
+      display: block;
+      padding: 6px 12px;
+      text-decoration: none;
+    }
+  }
+
+  @media(max-width: 768px){
+    li{
+      display: block;
+      padding: 10px;
+    }
+  }
+}
+
+//=========== Operators =========
+
+$browser-context: 16; // Default
+$width1: 40px;
+$width2: 60px;
+
+@function em($pixels, $context: $browser-context) {
+  @return #{$pixels/$context}em
+}
+
+body {
+  font-size: em(16);
+}
+
+h1 {
+  font-size: em(72);
+}
+
+.minus{
+  width: $width2 - $width1;
+}
+
+.sum{
+  width: $width1+100px;
+}
+
+.item-block {
+  width: 300px / 960px * 100%;
+}
+
+//=========== Extend =========
+
+.message {
+  border: 1px solid #ccc;
+  padding: 10px;
+  color: #333;
+}
+
+.success {
+  @extend .message;
+  border-color: green;
+}
+
+.error {
+  @extend .message;
+  border-color: red;
+}
+
+.warning {
+  @extend .message;
+  border-color: yellow;
+}
+
+.serious-error {
+  @extend .error;
+  border-width: 3px;
+}
+
+.icon{
+  &:before,&:after{
+
+  }
+  &:before{
+    content: "";
+    display: block;
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: url("../img/icon.png");
+  }
+  &:after{
+
+  }
+}
+.test{
+  @extend .error;
+  @extend .icon;
+  border-width: 3px;
+}
+
+
+//=========== Other features =========
+
+@import '_import';
+
+//Parent Selectors: &
+
+a{
+  &:hover{
+    color:red;
+  }
+  &.main-link{
+    color:blue;
+  }
+  &.secondary-link{
+    color:#ccc;
+  }
+}
+.block{
+   width: 50%;
+   height: 50px;
+   border: 1px solid red;
+   background: #333;
+  &.left{
+    float: left;
+  }
+  &.right{
+    float: right;
+  }
+ }
+Ul{
+  li{
+    &:first-child{
+      margin: 0;
+    }
+  }
+}
+
+ //======== Color functions ========
+
+$base-color: #AD141E;
+
+p{
+  color:darken( $base-color, 10% );
+
+}
+
+span{
+  color:lighten( #333, 50% );
+}
